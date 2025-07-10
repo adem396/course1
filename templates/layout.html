@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Flask App</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+    <script defer src="{{ url_for('static', filename='script.js') }}"></script>
+  </head>
+  <body>
+    <header class="header">
+      <nav class="nav">
+        <a class="logo" href="/">Flask Blog</a>
+        <input type="submit" value="click" onclick="menu()" />
+        <div class="menu" id="menu">
+          <div class="menu-left">
+            <a class="link" href="/">Home</a>
+            <a class="link" href="/about">About</a>
+          </div>
+          <div class="menu-right">
+            <a class="link" href="/login">Login</a>
+            <a class="link" href="/register">Register</a>
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <main role="main" class="container">
+      <div class="row">
+        <div class="content-left">{% block content %}{% endblock %}</div>
+        <div class="content-right">
+          <div class="sidebar-section">
+            <h3>Our Sidebar</h3>
+            <p class="text-muted">
+              You can put any information here you'd like.
+            </p>
+            <ul class="list">
+              <li class="list-item">
+                <a class="a2" href="/posts">Latest Posts</a>
+              </li>
+              <li class="list-item">
+                <a class="a2" href="/announcements">Announcements</a>
+              </li>
+              <li class="list-item">
+                <a class="a2" href="/calendars">Calendars</a>
+              </li>
+              <li class="list-item"><a class="a2" href="/etc">etc</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </main>
+  </body>
+</html>
